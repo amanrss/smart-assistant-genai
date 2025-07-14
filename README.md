@@ -70,18 +70,22 @@ streamlit run app.py
 ## 📸 Screenshots 
 
 UPLOAD
+
 <img width="962" height="450" alt="Upload" src="https://github.com/user-attachments/assets/e23a6200-cbae-42ca-9b47-9f03e75067eb" />
 
 
 SUMMARY
+
 <img width="945" height="444" alt="Summary" src="https://github.com/user-attachments/assets/701aa419-e623-49db-9f89-b54f752edfad" />
 
 
 Ask Anything
+
 <img width="941" height="425" alt="AskAnything" src="https://github.com/user-attachments/assets/1010d315-f09f-480f-8437-5f5211e874d6" />
 
 
 CHALLENGE ME
+
 <img width="956" height="449" alt="ChallengeMe" src="https://github.com/user-attachments/assets/696d364b-8004-4995-8a7e-2cb9b336477a" />
 
 
