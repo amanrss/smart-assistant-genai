@@ -1,121 +1,196 @@
-# 🔮 Smart Assistant for Research Summarization
+# 📚 Smart Assistant for Research Summarization
 
-An AI-powered assistant that helps researchers, students, and educators quickly understand and interact with academic documents. Built entirely on **free open-source models**, this app extracts summaries, answers deep questions, evaluates answers, and explains its reasoning. Designed with an intuitive Streamlit interface.
+An AI-powered research assistant that helps users quickly understand and interact with research papers, reports, and documents using Google's Gemini API.
 
----
+## 🚀 Live Demo
 
-## 🔁 What It Does
-
-- 📄 **Upload a PDF/TXT research paper**
-- 📝 **Auto Summary**: Generates a rich abstract with optional grammar polishing
-- ❓ **Ask Anything**: Answer any question from the document using semantic search + context memory
-- 🧠 **Challenge Me**: Auto-generated logic questions to test comprehension
-- ✅ **Evaluate Answers**: Gives feedback and scoring based on meaning match
-- 🧠 **Memory-Enabled**: Handles follow-up questions with retained context
-- 🔍 **Answer Highlighting**: Shows exactly which paragraph supports each answer
+**Live Application:** [https://smart-assistant-genai-954.streamlit.app/]
 
 ---
 
-## 🚀 Features Overview
+## 📖 Overview
 
-| Feature                        | Description                                                                 |
-|------------------------------- |---------------------------------------------------------------------------- |
-| 📂 Document Upload            | Upload `.pdf` or `.txt` files                                              |
-| 📝 Grammar-Polished Summaries | Toggle to clean and enhance auto summaries                                 |
-| 🧠 Ask Anything Mode          | Extracts context-aware answers from anywhere in the doc                    |
-| 🔎 Semantic Search Ranking    | Uses sentence transformers to rank relevant chunks                         |
-| 📖 Justification & Snippet    | Shows paragraph number and exact source snippet                            |
-| 💬 Context Memory             | Supports intelligent follow-up questions                                   |
-| 🧠 Challenge Generator        | Generates 3 logic-based questions from the uploaded doc                    |
-| ✅ Answer Evaluator           | Compares user input vs doc and gives smart feedback                        |
+Smart Assistant for Research Summarization is a Generative AI application that allows users to upload research papers in PDF or TXT format and interact with them intelligently.
+
+The system automatically generates concise summaries, answers user questions based on document content, and provides a challenge-based learning mode to improve comprehension.
+
+---
+
+## ✨ Features
+
+### 📄 Document Upload
+
+* Supports PDF and TXT files
+* Automatic text extraction and processing
+
+### 📘 AI-Powered Summarization
+
+* Generates structured summaries
+* Highlights key findings and insights
+* Produces professional and readable output
+
+### ❓ Ask Anything
+
+* Ask natural language questions about the uploaded document
+* Receive contextual answers generated using Gemini
+* Includes answer justification and supporting snippets
+
+### 🧠 Challenge Me
+
+* Automatically generates document-based questions
+* Evaluates user responses
+* Provides feedback and scoring
+
+### ☁️ Cloud Deployment
+
+* Fully deployed using Streamlit Cloud
+* Accessible from anywhere through a web browser
+
+---
+
+## 🏗️ System Architecture
+
+```text
+User Uploads PDF/TXT
+          │
+          ▼
+Document Parsing
+          │
+          ▼
+Text Extraction
+          │
+          ▼
+Google Gemini API
+     ├── Summarization
+     ├── Question Answering
+     ├── Question Generation
+     └── Answer Evaluation
+          │
+          ▼
+Interactive Streamlit UI
+```
 
 ---
 
 ## 🛠️ Tech Stack
 
-- `Python 3.9+`
-- `Streamlit`
-- `Transformers`
-- `Sentence-Transformers`
-- `pdfplumber`
+### Frontend
+
+* Streamlit
+
+### AI & NLP
+
+* Google Gemini API
+
+### Document Processing
+
+* pdfplumber
+
+### Language
+
+* Python
+
+### Deployment
+
+* Streamlit Community Cloud
 
 ---
 
-## 🏠 Local Setup
+## 📂 Project Structure
 
-### 1. Clone the repo
+```text
+smart-assistant-genai/
+│
+├── app.py
+│
+├── utils/
+│   ├── gemini_client.py
+│   ├── summarizer.py
+│   ├── qa.py
+│   ├── challenge.py
+│   └── parser.py
+│
+├── requirements.txt
+│
+└── README.md
+```
+
+---
+
+## ⚙️ Installation
+
+### Clone Repository
+
 ```bash
-git clone https://github.com/amanrss/smart-assistant-genai.git
+git clone https://github.com/your-username/smart-assistant-genai.git
+
 cd smart-assistant-genai
 ```
 
-### 2. Set up virtual environment (Windows)
-```bash
-python -m venv venv
-venv\Scripts\activate
-```
-*For Linux/macOS:* `source venv/bin/activate`
+### Install Dependencies
 
-### 3. Install requirements
 ```bash
 pip install -r requirements.txt
 ```
 
-### 4. Run the app
+### Configure Gemini API Key
+
+Create:
+
+```text
+.streamlit/secrets.toml
+```
+
+Add:
+
+```toml
+GEMINI_API_KEY="YOUR_GEMINI_API_KEY"
+```
+
+---
+
+## ▶️ Run Locally
+
 ```bash
 streamlit run app.py
 ```
 
 ---
-## 📸 Screenshots 
 
-UPLOAD
+## 🎯 Use Cases
 
-<img width="962" height="450" alt="Upload" src="https://github.com/user-attachments/assets/e23a6200-cbae-42ca-9b47-9f03e75067eb" />
-
-
-<br><br>
-
-SUMMARY
-
-<img width="945" height="444" alt="Summary" src="https://github.com/user-attachments/assets/701aa419-e623-49db-9f89-b54f752edfad" />
-
-
-
-<br><br>
-Ask Anything
-
-<img width="941" height="425" alt="AskAnything" src="https://github.com/user-attachments/assets/1010d315-f09f-480f-8437-5f5211e874d6" />
-
-
-
-<br><br>
-CHALLENGE ME
-
-<img width="956" height="449" alt="ChallengeMe" src="https://github.com/user-attachments/assets/696d364b-8004-4995-8a7e-2cb9b336477a" />
-
+* Research Paper Analysis
+* Academic Study Assistance
+* Literature Review Support
+* Technical Document Understanding
+* Student Learning Enhancement
+* Knowledge Extraction from PDFs
 
 ---
 
-## 📂 Folder Structure
+## 🔮 Future Enhancements
 
-```
-smart-assistant-genai/
-├── app.py
-├── README.md
-├── requirements.txt
-└── utils/
-    ├── parser.py
-    ├── summarizer.py
-    ├── qa.py
-    └── challenge.py
-```
+* Retrieval-Augmented Generation (RAG)
+* Vector Database Integration
+* Multi-Document Comparison
+* PDF Annotation Support
+* Citation Extraction
+* Export Summary as PDF
+* Conversational Memory
+* Advanced Semantic Search
 
 ---
- 👤 Author
 
-**Aman Singh**   
-📧 [amanrss954@gmail.com](mailto:amanrss954@gmail.com)
+## 👨‍💻 Author
 
-## 🔓 License
-MIT License — free to use, modify and share.
+**Aman Singh**
+
+B.Tech (Data Science)
+
+Noida Institute of Engineering and Technology
+
+---
+
+## 📜 License
+
+This project is intended for educational, research, and portfolio purposes.
