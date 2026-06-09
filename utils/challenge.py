@@ -3,15 +3,30 @@ from utils.gemini_client import ask_gemini
 def generate_challenges(text):
 
     prompt = f"""
-    Generate 5 challenging questions from the document.
+    Generate exactly 3 challenging questions.
 
-    Return only numbered questions.
+    Return only:
+
+    1. Question
+    2. Question
+    3. Question
 
     Document:
-    {text}
+    {text[:50000]}
     """
 
-    return ask_gemini(prompt)
+    response = ask_gemini(prompt)
+
+    questions = []
+
+    for line in response.split("\n"):
+        line = line.strip()
+
+        if line.startswith(("1.", "2.", "3.", "-", "*")):
+            q = line.split(".", 1)[-1].strip()
+            questions.append(q)
+
+    return questions[:3]
 
 
 def evaluate_answer(question, answer, document):
