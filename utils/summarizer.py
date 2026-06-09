@@ -6,26 +6,20 @@ def generate_summary(text, polish=False):
     Summarize the following document professionally.
 
     Include:
-    1. Overview
-    2. Key Points
-    3. Important Findings
-    4. Conclusion
+    - Overview
+    - Key Points
+    - Important Findings
+    - Conclusion
 
     Document:
-    {text}
+    {text[:50000]}
     """
 
     summary = ask_gemini(prompt)
 
     if polish:
-        polish_prompt = f"""
-        Improve the following summary by making it more professional,
-        concise and grammatically correct.
-
-        Summary:
-        {summary}
-        """
-
-        summary = ask_gemini(polish_prompt)
+        summary = ask_gemini(
+            f"Improve the grammar and professionalism of:\n\n{summary}"
+        )
 
     return summary
