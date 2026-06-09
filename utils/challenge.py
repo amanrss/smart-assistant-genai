@@ -29,11 +29,11 @@ def generate_challenges(text):
     return questions[:3]
 
 
-def evaluate_answer(question, answer, document):
+def evaluate_answer(document, question, answer):
 
     prompt = f"""
     Document:
-    {document}
+    {document[:50000]}
 
     Question:
     {question}
@@ -44,9 +44,21 @@ def evaluate_answer(question, answer, document):
     Evaluate the answer.
 
     Return:
-    Score /10
-    Correct Answer
-    Explanation
+
+    SCORE:
+    <score out of 10>
+
+    FEEDBACK:
+    <feedback>
     """
 
-    return ask_gemini(prompt)
+    response = ask_gemini(prompt)
+
+    try:
+        score = response.split("FEEDBACK:")[0].replace("SCORE:", "").strip()
+        feedback = response.split("FEEDBACK:")[1].strip()
+    except:
+        score = "N/A"
+        feedback = response
+
+    return score, feedback
